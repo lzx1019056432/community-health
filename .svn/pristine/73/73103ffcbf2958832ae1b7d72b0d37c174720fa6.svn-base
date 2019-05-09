@@ -1,0 +1,40 @@
+package com.test.controller;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.test.dao.UserDao;
+import com.test.entity.User;
+
+
+
+@Controller
+public class controller {
+	private User user;
+	@Autowired
+	private UserDao dao;
+	@Autowired
+@RequestMapping("test1")
+	public void fun1(){
+	System.out.println("hello");
+}
+@RequestMapping("Login")
+public String fun1(String user_name,String user_password,HttpSession session) throws Exception{
+System.out.println("hello");
+System.out.println(user_name);
+System.out.println(user_password);
+ user=dao.login(user_name, user_password);
+System.out.println(user.getUser_groupid());
+if(user!=null){
+	session.setAttribute("user", user);
+	return "index";
+}else{
+	return "login";
+}	
+}
+}

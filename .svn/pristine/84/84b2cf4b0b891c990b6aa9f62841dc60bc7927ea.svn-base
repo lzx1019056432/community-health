@@ -1,0 +1,244 @@
+.main-content {
+	min-height: 550px;
+}
+
+.AQmenu table {
+	width: 100%;
+	font-family: "微软雅黑";
+	font-size: 16px;
+	margin-top: 40px;
+}
+
+.AQmenu table td {
+	height: 40px;
+	width: 120px;
+}
+
+.AQmenu table a {
+	color: black;
+	text-decoration: none;
+}
+
+.AQmenu table a:hover {
+	background: #2EC561;
+	color: white;
+	transform-style: preserve-3d;
+	transition-delay: inherit;
+	transition: .5s;
+}
+
+.AQmenu-down span a {
+	color: black;
+	text-decoration: none;
+	margin: 0 15px;
+}
+
+.AQmenu-down span a:hover {
+	background: #2EC561;
+	color: white;
+	transform-style: preserve-3d;
+	transition-delay: inherit;
+	transition: .5s;
+}
+
+.AQcontent {
+	margin-top: 50px;
+	border-top: 1px dashed #777777;
+	padding-top: 30px;
+}
+
+.AQcontent-right-Doc {
+	border-top: dashed 1px #ADADAD;
+	padding: 15px 3px;
+	margin-bottom: 15px;
+}
+
+.AQcontent-right-name a{
+	text-decoration: none;
+	color:#37cf6b;
+}
+.AQcontent-right-name a:hover{
+	text-decoration: none;
+	color:#37cf6b;
+}
+
+
+.AQcontent-right-title {
+	font-family: "微软雅黑";
+	font-size: 18px;
+	margin: 5px 2px;
+}
+
+.AQcontent-right-consult {
+	display: inline-block;
+	color: #fff;
+	background-color: #ff6134;
+	padding: 4px 5px;
+	margin-top: 7px;
+	text-align: center;
+	margin-left: 5px;
+}
+
+
+.AQcontent-right-head {
+	float: left;
+	text-align: center;
+	margin-right: 7px;
+	overflow: hidden;
+}
+
+.AQcontent-right-head a {
+	display: block;
+	height: 79px;
+	width: 79px;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+	border: 1px solid #e5f3fe;
+	border-radius: 100%;
+	margin-bottom: 9px;
+	overflow: hidden;
+}
+
+.AQcontent-right-head img {
+	display: block;
+	height: 79px;
+	width: 79px;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+	border: 0;
+}
+
+.AQcontent-right-head span {
+	display: inline-block;
+	color: #fff;
+	background-color: #ff6134;
+	padding: 4px 5px;
+}
+
+.AQcontent-right-name{
+	color: #37cf6b;
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+.AQcontent-right-message{
+	margin-bottom: 5px;
+	font-family: "微软雅黑";
+	font-weight: 600;
+}
+
+
+
+.AQcontent-right {
+	border: 1px solid #C0C0C0;
+}
+
+.AQcontent-left-message {
+	margin: 30px;
+}
+
+.AQcontent-left-message div {
+	margin: 10px 0;
+}
+
+.message-ask {
+	display: inline-block;
+	color: #fff;
+	font-size: 12px;
+	height: 20px;
+	width: 20px;
+	text-align: center;
+	line-height: 20px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	font-style: normal;
+	background-color: #37cf6b;
+	margin-right: 5px;
+}
+
+.message-ans {
+	display: inline-block;
+	color: #fff;
+	font-size: 12px;
+	height: 20px;
+	width: 20px;
+	text-align: center;
+	line-height: 20px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	font-style: normal;
+	background-color: #f6a623;
+	margin-right: 5px;
+}
+
+.message-fir {
+	color: #000;
+	font-weight: 700;
+}
+
+.message-sec {
+	color: #666;
+}
+
+.message-thi {
+	margin-left: 50px;
+	text-indent: 30px;
+}
+
+
+/*HM使用CSS*/
+
+.hm-title {
+	font-size: 25px;
+	font-weight: 700;
+	padding-bottom: 50px;
+	border-bottom: 1px solid #777777;
+	margin-top: 86px;
+}
+
+#hs-itr {
+	font-size: 18px;
+	padding: 18px 0;
+	border-bottom: 1px dashed #888888;
+}
+
+.hm-itr-content,
+.hm-itr-route {
+	font-size: 17px;
+	padding: 40px 0;
+}
+
+#hs-tel {
+	padding-bottom: 40px;
+	border-bottom: 2px solid #37CF6B;
+}
+
+
+
+/*QandA页面所用CSS*/
+
+.aq-title{
+	text-align: center;
+	font-size: 25px;
+}
+.aq-title span{
+	font-size: 15px;
+	color: #ADADAD;
+}
+.chat-output{
+	border: solid 1px #888888;
+	height: 300px;
+	margin-bottom: 20px;
+	border-radius: 0px;
+	overflow-y: scroll;
+	 
+}
+.chat-input{
+	border: solid 1px #ADADAD;
+	border-top-color: #ffffff;
+	width: 300px;
+	height: 123px;
+	margin-top: -20px;
+	border-radius: 0px;
+	padding: 0px;
+	 
+}

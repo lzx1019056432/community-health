@@ -1,0 +1,82 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/MyStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/AQ.css" />
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+		<title>医疗</title>
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default" role="navigation" id="navbar">
+			<div class="container-fluid">
+
+				<div>
+					<ul style="margin-left: 300px; font-size: 17px;" class="nav navbar-nav">
+						<li class="navbar-li">
+							<a href="homepage.html" style="color: white;">首页</a>
+						</li>
+						<li class="navbar-li">
+							<a href="QandA.html" style="color: #9BFFBD;background-color: #09AD41;">健康问答</a>
+						</li>
+						<li class="navbar-li">
+							<a href="Health.html" style="color: white;  ">健康咨询</a>
+						</li>
+						<li class="navbar-li">
+							<a href="knowledge.html" style="color: white;">疾病知识</a>
+						</li>
+					</ul>
+				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="navbar-li-right">
+						<a href="register.html" style="color: white;"><span class="glyphicon glyphicon-user"></span> 注册</a>
+					</li>
+					<li class="navbar-li-right">
+						<a href="login.html" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> 登录</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<!--导航结束-->
+		<div class="logo">
+			<img style="width: 100%;" src="img/LOGO.png" />
+		</div>
+		<div class="container main-content">
+			<div class="row">
+				<div class="col-lg-12" style="margin-top: 50px;">
+					<div class="aq-title">
+						欢迎来到在线问答咨询医生
+						<br />
+						<span>
+							在这里可以与你想咨询的医师在线问答
+						</span>
+					</div>
+				
+				<div class="chat-output">
+					123
+				</div>
+				<div class="chat-input">
+					345
+				</div>
+				</div>
+			</div>
+		</div>
+
+		<!--容器结束		-->
+		<div id="footer" class="footer" style="margin-top: 187px;">
+		</div>
+	</body>
+
+</html>

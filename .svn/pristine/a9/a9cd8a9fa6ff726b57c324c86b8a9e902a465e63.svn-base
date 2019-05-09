@@ -1,0 +1,75 @@
+<%@page import="com.test.entity.Pagedata"%>
+<%@page import="com.test.entity.Hospital"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%-- <%
+List<Hospital> listall = (List)request.getAttribute("list");
+%> --%>
+<table>
+<tr>
+<td>id</td>
+<td>name</td>
+<td>miaoshu</td>
+<td>weizhi</td>
+<td>jingdu</td>
+<td>weidu</td>
+<td>juli</td>
+</tr>
+<c:forEach items="${listall}" var="lit">
+
+<tr>
+<td>${lit.hos_id }</td>
+<td>${lit.hos_name}</td>
+<td>${lit.hos_description}</td>
+<td>${lit.hos_longitude}</td>
+<td>${lit.hos_latitude}</td>
+<td>${lit.distance}</td>
+<td>${ab}</td>
+</tr>
+ 	
+
+
+</c:forEach>
+<%
+Pagedata pd = (Pagedata)request.getAttribute("pagedata");
+%>
+</table>
+ 
+
+<c:choose> 
+  <c:when test="${pagedata.getPageindex()==1&&pagedata.getPageCount()==1}">   
+
+上一页<%=pd.getPageindex() %>下一页
+
+  </c:when> 
+  <c:when test="${pagedata.getPageindex()==1 }">   
+
+上一页<%=pd.getPageindex() %><a href="test.do?currentpage=<%=pd.getPageindex()+1%>">下一页</a>
+
+  </c:when> 
+
+  <c:when test="${pagedata.getPageindex()==pagedata.getPageCount()}">   
+
+<a href="test.do?currentpage=<%=pd.getPageindex()-1%>">上一页</a><%=pd.getPageindex() %>下一页
+
+  </c:when> 
+
+  <c:otherwise>   
+
+<a href="test.do?currentpage=<%=pd.getPageindex()-1%>">上一页</a><%=pd.getPageindex() %><a href="test.do?currentpage=<%=pd.getPageindex()+1%>">下一页</a>
+
+  </c:otherwise> 
+
+</c:choose> 
+</body>
+</html>

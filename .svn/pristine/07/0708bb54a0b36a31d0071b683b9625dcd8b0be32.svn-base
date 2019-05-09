@@ -1,0 +1,111 @@
+<%@page import="com.test.entity.User"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/MyStyle.css" />
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/botton.css" />
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+		<title>医疗</title>
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default" role="navigation" id="navbar">
+			<div class="container-fluid">
+
+				<div>
+					<ul style="margin-left: 300px; font-size: 17px;" class="nav navbar-nav">
+						<li class="navbar-li">
+							<a href="searchall.do" style="color:white ">首页</a>
+						</li>
+						<li class="navbar-li">
+							<a href="QandA.jsp" style="color: white;">健康问答</a>
+						</li>
+						<li class="navbar-li">
+							<a href="Health.jsp" style="color: white;">健康咨询</a>
+						</li>
+						<li class="navbar-li">
+							<a href="knowledge.jsp" style="color: white;">疾病知识</a>
+						</li>
+					</ul>
+				</div>
+					<ul class="nav navbar-nav navbar-right">
+<%
+User user = (User)request.getSession().getAttribute("user");
+%>
+					<c:if test="${user eq null}">
+					
+						<li class="navbar-li-right">
+							<a href="register.jsp" style="color: white;"><span class="glyphicon glyphicon-user"></span>注册</a>
+						</li>
+						<li class="navbar-li-right">
+							<a href="login.jsp" style="color: white;"><span class="glyphicon glyphicon-log-in"></span>登录</a>
+						</li>
+                      </c:if>
+						<!--登录成功后上面的注册/登录加样式 display：none进行隐藏-->
+                      <c:if test="${user ne null}">
+						<li class="navbar-li-right">
+							<a href="editMessage.jsp" style="color: white;"><%=user.getUser_nick() %>></a>
+						</li>
+						<li class="navbar-li-right">
+							<a href="login.jsp" style="color: white;"><span class="glyphicon glyphicon-log-out"></span> 登出</a>
+						</li>
+						</c:if>
+					</ul>
+			</div>
+		</nav>
+
+		<!--导航结束-->
+		<div class="logo">
+			<img style="width: 100%;" src="img/LOGO.png" />
+		</div>
+		<div class="container" style="height: 618px;">
+			<div class="row">
+				<div class="col-lg-12" style="border: 1px solid #888888; margin-top: 130px; margin-bottom: -80px;">
+					<div class="col-lg-12">
+						<h1>资料修改</h1>
+						<hr />
+						<div style="text-align: center;" class="col-lg-12 all-content">
+							<form action="" method="post" id="">
+
+								<div id="user">
+									△ 昵&nbsp; &nbsp;称：
+									<input style="margin-left: 18px;" type="text" name="" id="" value="" />
+								</div>
+								<br />
+								<div id="psw">
+									△ 密&nbsp; &nbsp;码：
+									<input style="margin-left: 18px;" type="password" name="" id="" value="" />
+								</div>
+								<h6 style="color: #ADADAD;margin-left: 130px;">长度在3-10位以内。</h6>
+								<div id="Firmpsw">
+									△ 确认密码：
+									<input type="password" name="" id="" value="" />
+								</div>
+								<div style="margin-top: 40px;margin-left: 100px;">
+									<a href="#" class="button button-action button-pill" onclick="document:表单ID名.submit();">修改</a>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--容器结束-->
+		<div id="footer" class="footer">
+		</div>
+	</body>
+
+</html>

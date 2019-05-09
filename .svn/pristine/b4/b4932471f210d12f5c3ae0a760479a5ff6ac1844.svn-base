@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+	<typeAlias type="com.test.entity.User" alias="us"/>
+
+	<typeAlias type="com.test.entity.Hospital" alias="hos"/>
+	<typeAlias type="com.test.entity.Pagedata" alias="pag"/>
+
+	<typeAlias type="com.test.entity.Que_answer" alias="qa"/>
+	<typeAlias type="com.test.entity.Hos_doctor" alias="doc"/>
+	<typeAlias type="com.test.entity.Consult" alias="con"/>
+
+	</typeAliases>
+	<mappers>
+	<mapper resource="com/test/dao/UserDaoMapper.xml"/> 
+	<mapper resource="com/test/dao/HospitalDaoMapper.xml"/> 
+	<mapper resource="com/test/dao/Que_answerDaoMapper.xml"/> 
+
+	<mapper resource="com/test/dao/Que_answerDaoMapper.xml"/>
+	<mapper resource="com/test/dao/Hos_doctorDaoMapper.xml"/> 
+
+	<mapper resource="com/test/dao/ConsultDaoMapper.xml"/>
+
+	</mappers>
+</configuration>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/MyStyle.css" />
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+		<title>医疗</title>
+	</head>
+
+	<body>
+		
+		<nav class="navbar navbar-default" role="navigation" id="navbar">
+			<div class="container-fluid">
+				
+				<div>
+					<ul style="margin-left: 300px; font-size: 17px;" class="nav navbar-nav">
+						<li class="active navbar-li">
+							<a href="#" style="color: #9BFFBD; background-color: #09AD41; ">首页</a>
+						</li>
+						<li class="navbar-li">
+							<a href="#" style="color: white;">SVN</a>
+						</li>
+						<li class="navbar-li">
+							<a href="#" style="color: white;">SVN</a>
+						</li>
+						<li class="navbar-li">
+							<a href="#" style="color: white;">SVN</a>
+						</li>
+					</ul>
+				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="navbar-li-right">
+						<a href="#" style="color: white;"><span class="glyphicon glyphicon-user"></span> 注册</a>
+					</li>
+					<li class="navbar-li-right">
+						<a href="#" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> 登录</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<!--导航结束-->
+				<div class="logo">
+					<img style="width: 70%;" src="img/LOGO.png"/>
+				</div>
+		<div class="container main-content">
+			<div class="row">
+				<div class="col-lg-12" style="margin-top: 50px;">
+					<div style="text-align: right;margin-top: 10px;">
+						<div class="btn-group btn-group-lg">
+							<button type="button" class="btn btn-default" id="btn-choose">按距离排行</button>
+							<button type="button" class="btn btn-default" id="btn-choose">按好评度排行</button>
+						</div>
+					</div>
+					<!--数据库检索循环罗列出信息排行-->
+					<div style="margin: auto 0px;">
+
+						<div class="col-lg-12" style="border: black 1px dashed;margin: 10px 0;">
+							第一
+						</div>
+						<div class="col-lg-12" style="border: black 1px dashed;margin: 10px 0;">
+							第2
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第3
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						<div class="col-lg-12 col-lg-offset-1" style="border: black 1px dashed;margin: 10px 0;">
+							第4
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--容器结束		-->
+		<div id="footer" class="footer">	 			
+		</div>
+	</body>
+
+</html>

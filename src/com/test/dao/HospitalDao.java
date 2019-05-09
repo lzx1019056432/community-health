@@ -1,0 +1,15 @@
+package com.test.dao;
+
+import java.util.List;
+
+import com.test.entity.Hospital;
+import com.test.entity.Pagedata;
+
+public interface HospitalDao {
+	public List<Hospital> SearchAll(String lon,String lat,int curentpage);
+    public int Pagenext(String lon,String lat);
+	public List<Hospital> Searchbyeva(String lon,String lat,int curentpage);
+	public Hospital Searchone(int id);
+	public Hospital hs(int id);
+
+}

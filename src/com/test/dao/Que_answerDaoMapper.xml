@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dao.Que_answerDao">
+	<insert id="ask" parameterType="qa" keyColumn="ques_id" keyProperty="true" >
+	insert into que_answer values (DEFAULT,#{ques_tittle_id},#{ques_tittle},#{ques_answer_id},#{ques_answer},#{ques_ans_pay},#{ans_time},#{que_time},#{ques_depart})
+	</insert>
+	<select id="browseque" resultType="qa">
+	select * from que_answer  where ques_answer_id=#{0} and ques_ans_pay="0" order by que_time asc
+	</select>
+	<select id="browseans" resultType="qa">
+	select * from que_answer  where ques_answer_id=#{0} and ques_ans_pay="1" order by que_time asc
+	</select>
+	<select id="quebrowse" resultType="qa">
+	select * from que_answer  where ques_tittle_id=#{0} and ques_ans_pay="0" order by que_time asc
+	</select>
+	<select id="ansbrowse" resultType="qa">
+	select * from que_answer  where ques_tittle_id=#{0} and ques_ans_pay="1" order by que_time asc
+	</select>
+	<select id="findall" resultType="qa">
+	select * from que_answer where ques_ans_pay="1"
+	</select>
+	<select id="browseproject" resultType="qa" parameterType="string">
+	select * from que_answer  where ques_depart=#{0};
+	</select>
+	<update id="ans" parameterType="qa">
+	update que_answer set ques_answer_id=#{ques_answer_id},ques_answer=#{ques_answer},ans_time=#{ans_time},ques_ans_pay=#{ques_ans_pay}+1 where ques_id=#{ques_id};
+	</update>
+</mapper>

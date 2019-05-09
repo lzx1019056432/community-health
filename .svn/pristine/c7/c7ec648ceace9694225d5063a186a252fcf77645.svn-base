@@ -1,0 +1,38 @@
+		#div1{
+			height: 300px;
+			background-color: #f3f3f3;
+			margin-top: 100px;
+			box-shadow: 5px 5px 10px #888888;
+			border-radius: 10px;
+ 
+		}
+		#div2{
+			font-size: 30px;
+			font-family: "微软雅黑";
+			font-weight: bold;
+			color: #8e8e8e;
+			margin-top: 20px;
+			margin-left: 30px;
+
+		}
+		#span1{
+			border-bottom-color: #2ac462;
+			border-bottom-style:solid;
+		}
+		#img1{
+			 width: 70px;
+			 margin-top: 50px;
+			 margin-left: 40px;
+		}
+		#div3{
+			color: #8e8e8e;
+			font-size: 22px;
+			margin-top: -50px;
+			margin-left: 150px;
+		}
+		#div4{
+			color: #8e8e8e;
+			font-size: 22px;
+			margin-left: 150px;
+			margin-top: 30px;
+		}

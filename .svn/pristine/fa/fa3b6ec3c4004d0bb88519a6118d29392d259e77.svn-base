@@ -1,0 +1,44 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>WebSocket示例</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+    
+  <link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet">
+  <script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+  <link href="http://g.alicdn.com/sj/sui-editor/0.0.2/editor/css/sui-editor.css" rel="stylesheet">
+  <script type="text/javascript" src="http://g.alicdn.com/sj/sui-editor/0.0.2/sui-editor.config.js"></script>
+  <script type="text/javascript" src="http://g.alicdn.com/sj/sui-editor/0.0.2/editor/js/sui-editor.js"></script>
+  
+</head>
+<body>
+	 
+	<form action="Login1.do" method="post">
+		用户id:
+		<input type="text" name="user_id">
+		用户昵称：
+				<input type="text" name="user_name">
+		
+<!-- 		<select name="id">
+			<option value="1">张三</option>
+			<option value="2">李四</option>
+		</select><br> -->
+		密码:
+		<input name="password" type="text" value="123456">
+		<input type="submit" value="登录">
+	</form>
+
+
+   
+
+
+<!-- //<script type="text/javascript" src="resource/api.js" ></script> -->
+</body>
+
+</html>

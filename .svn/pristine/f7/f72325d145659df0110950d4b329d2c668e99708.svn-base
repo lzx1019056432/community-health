@@ -1,0 +1,27 @@
+package com.test.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.test.dao.ConsultDao;
+import com.test.entity.Consult;
+
+@Controller
+public class Con_controller {
+	private Consult consult;
+	@Autowired
+	private ConsultDao dao;
+	
+	@RequestMapping("browseCon")
+	public String funCon(ModelMap mp, int con_lable) {
+		System.out.println("funCon");
+		List<Consult> allCon = dao.browseCon(con_lable);
+		mp.addAttribute("allCon",allCon);
+		System.out.println(allCon.size());
+		return "showCon";
+	}
+}

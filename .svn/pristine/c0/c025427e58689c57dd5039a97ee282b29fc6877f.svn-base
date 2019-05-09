@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">LOGO放置区</a>
+				</div>
+				<div>
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="#">iOS</a>
+						</li>
+						<li>
+							<a href="#">SVN</a>
+						</li>
+						<li>
+							<a href="#">SVN</a>
+						</li>
+						<li>
+							<a href="#">SVN</a>
+						</li>
+					</ul>
+				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="#"><span class="glyphicon glyphicon-user"></span> 注册</a>
+					</li>
+					<li>
+						<a href="#"><span class="glyphicon glyphicon-log-in"></span> 登录</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<!--导航结束-->
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12" style="border: 1px solid #888888; ">
+					<div class="col-lg-8">
+						用户登录
+						<hr />
+						<div class="col-lg-8 col-lg-offset-2">
+
+							<div id="user">
+								用户名：
+								<input type="text" name="" id="" value="" />
+							</div>
+							<div id="psw">
+								密码：
+								<input type="password" name="" id="" value="" />
+							</div>
+							<div id="ForgetPSW" style="text-align: right;" class="pull-right">
+								<a href="#">忘记密码？</a>
+							</div>
+							<div id="Register" style="text-align: left;">
+								<a href="#">注册账号</a>
+							</div>
+							<div style="text-align: center;">
+								<button>登录</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<dl class="side-intro">
+							<dt>我们提供的在线健康咨询服务</dt>
+							<dd>99%用户表示满意</dd>
+							<dd>3分钟内首次回复</dd>
+							<dd>50万名认证二甲以上公立医院医生</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--容器结束-->
+
+		<div id="footer">
+			<hr /> 合作单位 鸣谢 营业号
+		</div>
+
+		<script type="text/javascript" src="https://media2.chunyuyisheng.com/@/static/pc/pkg/common/common_pkg_6c99336.js"></script>
+		<script type="text/javascript">
+			/*resourcemap*/
+		</script>
+
+		<script type="text/javascript" src="https://media2.chunyuyisheng.com/@/static/pc/js/seo/login_456f71a.js"></script>
+
+		</body>
+
+</html>

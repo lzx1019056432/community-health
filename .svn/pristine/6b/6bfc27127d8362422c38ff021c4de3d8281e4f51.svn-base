@@ -1,0 +1,120 @@
+package com.test.controller;
+
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.test.dao.Hos_doctorDao;
+import com.test.dao.Que_answerDao;
+import com.test.dao.UserDao;
+import com.test.entity.Hos_doctor;
+import com.test.entity.Que_answer;
+import com.test.entity.User;
+
+
+
+@Controller
+public class controller {
+	private User user;
+	@Autowired
+	private UserDao dao;
+	@Autowired
+	private Que_answerDao quedao;
+	@Autowired
+	private Hos_doctorDao docdao;
+@RequestMapping("test")
+	public void fun1(){
+	System.out.println("hello");
+}
+@RequestMapping("Login")
+public String fun2(String user_name,String user_password,HttpSession session) throws Exception{
+user=dao.login(user_name, user_password);
+if(user!=null){
+	session.setAttribute("user", user);
+	return "homepage";
+}else{
+	return "login";
+}	
+}
+@RequestMapping("Register")
+public String fun3(User user,String password){
+	if(password.equals(user.getUser_password())){
+dao.register(user);
+return "login";
+	}
+return "register";
+}
+@RequestMapping("Revise")
+public String fun4(User user){
+dao.revise(user);
+return "index";
+}
+@RequestMapping("Question")
+public String fun5(Que_answer que){
+Timestamp q = new Timestamp(new Date().getTime());
+que.setQue_time(q);
+quedao.ask(que);
+return "index";
+}
+@RequestMapping("BrowseQue")
+public String fun6(ModelMap mp,HttpSession session){
+user=(User) session.getAttribute("user");
+List<Que_answer> allque=quedao.browseque(user.getUser_id());
+mp.addAttribute("allque",allque);
+return "showque";
+}
+@RequestMapping("AnsQue")
+public String fun7(Que_answer que,HttpSession session){
+Timestamp a = new Timestamp(new Date().getTime());
+user=(User) session.getAttribute("user");
+System.out.println(user.getUser_id());
+que.setQues_answer_id(user.getUser_id());
+que.setAns_time(a);
+quedao.ans(que);
+return "index";
+}
+@RequestMapping("BrowseDoc")
+public String fun8(ModelMap mp){
+List<Que_answer> allanswer=quedao.findall();
+List<Hos_doctor> alldoc=docdao.doc();
+mp.addAttribute("alldoc",alldoc);
+mp.addAttribute("allanswer",allanswer);
+return "Health";
+}
+@RequestMapping("Doctor")
+public String fun9(ModelMap mp,int id){
+List<Que_answer> allans=quedao.browseans(id);
+mp.addAttribute("allans",allans);
+return "doctor";
+}
+@RequestMapping("Evaluate")
+public void fun10(ModelMap mp,int i,int id){
+	docdao.evaluate(i,id);
+}
+@RequestMapping("Myqa")
+public String fun11(ModelMap mp,HttpSession session){
+	user=(User) session.getAttribute("user");
+	if(user.getUser_groupid()==1){
+		List<Que_answer> unanswer=quedao.browseque(user.getUser_id());
+		List<Que_answer> answer=quedao.browseans(user.getUser_id());
+		mp.addAttribute("unanswer", unanswer);
+		mp.addAttribute("answer", answer);
+		return "ask-doc";
+	}
+		
+		List<Que_answer> unanswer=quedao.quebrowse(user.getUser_id());
+		List<Que_answer> answer=quedao.ansbrowse(user.getUser_id());
+		mp.addAttribute("unanswer", unanswer);
+		mp.addAttribute("answer", answer);
+		return "ask-pat";
+}
+}

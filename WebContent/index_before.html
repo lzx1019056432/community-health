@@ -1,0 +1,76 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FoH3GcjXoraCczyFLU4GBFtov2Frhkxx"></script>
+	<title>正在定位……</title>
+	<link rel="icon" type="image/x-icon" href="img/icon.png" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/index_before.css" />
+</head>
+<body>
+	<div class="col-lg-4 col-lg-offset-4" id="div1">
+			<div id="div2">
+				<span id="span1">温馨提醒</span>
+			</div>
+			<div>
+				<img src="img/对号2.png" id="img1"/>
+			</div>
+			<div id="div3">
+				正在安全监测
+			</div>
+			<div id="div4">
+				请稍等...
+
+			</div>
+		</div>
+	<div id="allmap" style="display:none;"></div>
+	<form action="searchall.do" method="post" id="test_form">
+	<input type="number" id="lng" name="lng" style="display: none;">
+	<input type="number" id="lat" name="lat" style="display: none;">
+	</form>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(116.331398,39.897445);
+	var form = document.getElementById('test_form');
+	map.centerAndZoom(point,12);
+
+	var geolocation = new BMap.Geolocation();
+	geolocation.getCurrentPosition(function(r){
+		if(this.getStatus() == BMAP_STATUS_SUCCESS){
+			var mk = new BMap.Marker(r.point);
+			map.addOverlay(mk);
+			map.panTo(r.point);
+	
+			document.getElementById('lng').value=""+r.point.lng;
+			document.getElementById('lat').value=""+r.point.lat;
+			 
+			form.submit();
+			
+		}
+		else {
+			alert('failed'+this.getStatus());
+		}        
+	},{enableHighAccuracy: true})
+	//关于状态码
+	//BMAP_STATUS_SUCCESS	检索成功。对应数值“0”。
+	//BMAP_STATUS_CITY_LIST	城市列表。对应数值“1”。
+	//BMAP_STATUS_UNKNOWN_LOCATION	位置结果未知。对应数值“2”。
+	//BMAP_STATUS_UNKNOWN_ROUTE	导航结果未知。对应数值“3”。
+	//BMAP_STATUS_INVALID_KEY	非法密钥。对应数值“4”。
+	//BMAP_STATUS_INVALID_REQUEST	非法请求。对应数值“5”。
+	//BMAP_STATUS_PERMISSION_DENIED	没有权限。对应数值“6”。(自 1.1 新增)
+	//BMAP_STATUS_SERVICE_UNAVAILABLE	服务不可用。对应数值“7”。(自 1.1 新增)
+	//BMAP_STATUS_TIMEOUT	超时。对应数值“8”。(自 1.1 新增)
+</script>
+
+
+
+
+ 

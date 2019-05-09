@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<base href="<%=basePath %>" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<input type="button" value="go" onclick="testSocket();"/><br>
+<input type="text" id="uid"/>
+<input type="button" value="send" onclick="send();"/>
+<div id="showbox" style="border:blue 1px solid;width: 300px;height:390px;"></div>
+<script type="text/javascript">
+	var ws;
+	function testSocket(){
+		alert(1);
+		ws=new WebSocket("ws://localhost:8080/community_health_care/socketTest1.do");		
+		ws.onopen=function(){			
+			show("open--"+ws.readyState);
+		}
+		ws.onmessage=function(event){
+			show("message--"+ws.readyState+event.data);
+		}
+		ws.onerror=function(event){
+			show("error--"+ws.readyState);
+		}
+		ws.onclose=function(event){
+			show("close--"+ws.readyState);
+		}
+	}
+	function send(){
+		var msg=$("#uid").val();
+		ws.send(msg);
+	}
+	function show(info){
+		var message=$("#showbox").html();
+		$("#showbox").html(message+info+"<br>");
+	}
+</script>
+</body>
+</html>

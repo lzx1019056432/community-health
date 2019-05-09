@@ -1,0 +1,16 @@
+package com.test.controller;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+
+
+@Controller
+public class controller {
+@RequestMapping("test1")
+	public void fun1(){
+	System.out.println("hello");
+}
+}

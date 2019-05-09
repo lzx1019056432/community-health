@@ -1,0 +1,249 @@
+package com.test.controller;
+
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.List;
+
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.test.dao.HospitalDao;
+import com.test.dao.Que_answerDao;
+import com.test.dao.UserDao;
+import com.test.entity.Hospital;
+import com.test.entity.Pagedata;
+import com.test.entity.Que_answer;
+
+import com.test.entity.User;
+import com.test.entity.User2;
+
+
+
+@Controller
+public class controller2 {
+	Map<Integer, User> users = new HashMap<Integer, User>();
+	
+ 	private User user;
+	@Autowired
+	private UserDao dao;
+	@Autowired
+	private HospitalDao hosdao; 
+	@Autowired
+	private Que_answerDao quedao;
+
+	
+@RequestMapping("searchall")
+	public String fun2(HttpServletRequest request, ModelMap mp) throws Exception{
+	Pagedata pagedata = new Pagedata();
+	request.getParameter("currentpage");
+		System.out.println("12121");
+		int size = 5;
+		int resultcount;
+		int currentpage = (request.getParameter("currentpage")==null)?1:Integer.parseInt(request.getParameter("currentpage"));
+		int sqllimitstart  = (currentpage-1)*size;
+		List<Hospital> list = hosdao.SearchAll(117.210813,39.143929,sqllimitstart);
+		System.out.println("12121"+list.get(1).getEva());
+		resultcount = hosdao.Pagenext(117.210813,39.143929);
+		pagedata.setResultCount(resultcount);
+		System.out.println(pagedata.getResultCount());
+		pagedata.setPageindex(currentpage);
+		pagedata.setPageCount((resultcount%size==0)?resultcount/size:(resultcount/size+1));
+		mp.addAttribute("listall", list);
+		mp.addAttribute("pagedata", pagedata);
+		System.out.println("resultcount"+resultcount);
+		return "homepage";
+		 
+		
+	} 
+
+
+@RequestMapping("searchbyeva")
+
+public String fun3(HttpServletRequest request, ModelMap mp) throws Exception{
+Pagedata pagedata = new Pagedata();
+request.getParameter("currentpage");
+	System.out.println("12121");
+	int size = 5;
+	int resultcount;
+	int currentpage = (request.getParameter("currentpage")==null)?1:Integer.parseInt(request.getParameter("currentpage"));
+	System.out.println("currentpage"+currentpage);
+	int sqllimitstart  = (currentpage-1)*size;
+	System.out.println("sqllimitstart"+sqllimitstart);
+
+	List<Hospital> list = hosdao.Searchbyeva(117.210813,39.143929,sqllimitstart);
+	System.out.println("12121"+list.size());
+	resultcount = hosdao.Pagenext(117.210813,39.143929);
+	pagedata.setResultCount(resultcount);
+	System.out.println(pagedata.getResultCount());
+	pagedata.setPageindex(currentpage);
+	pagedata.setPageCount((resultcount%size==0)?resultcount/size:(resultcount/size+1));
+	mp.addAttribute("listall", list);
+	mp.addAttribute("pagedata", pagedata);
+	return "homepage2";
+	 
+	
+} 
+/*@RequestMapping("Login")
+
+public String fun1(String user_name,String user_password,HttpSession session,ModelMap mp) throws Exception{
+System.out.println("hello");
+System.out.println(user_name);
+System.out.println(user_password);
+ user=dao.login(user_name, user_password);
+System.out.println(user.getUser_groupid());
+return user_password;
+}*/
+
+/*public String fun2(String user_name,String user_password,HttpSession session,ModelMap mp) throws Exception{
+user=dao.login(user_name, user_password);
+
+if(user!=null){
+	mp.addAttribute("users", user);
+	session.setAttribute("user", user);
+	return "index";
+}else{
+	return "login";
+}	
+}*/
+
+
+@RequestMapping("Login1")
+public ModelAndView doLogin0(User user, HttpServletRequest request) {
+	System.out.println(user.getUser_id());
+	System.out.println("0.0.0.0.0.0");
+	request.getSession().setAttribute("uid", 120);
+	request.getSession().setAttribute("name", 120);
+	 
+	System.out.println(users.size()+"user.size");
+	System.out.println("session"+request.getSession().getAttribute("uid"));
+	return new ModelAndView("redirect:talk.do");
+}
+/*
+@RequestMapping("Register")
+public String fun3(User user){
+dao.register(user);
+return "index";
+
+}*/
+
+//跳转到交谈聊天页面----病人端
+	@RequestMapping(value = "talk", method = RequestMethod.GET)
+	public ModelAndView talk(String fromuser,String from,String fromname) {
+		
+		ModelAndView mv = new ModelAndView("QandA");
+		if(fromuser==null){
+			mv.addObject("fromtouser", 120);
+			System.out.println("病人1已登录");
+		}else{
+		mv.addObject("fromtouser", fromuser);
+		mv.addObject("from", from);
+		mv.addObject("fromname", fromname);
+		
+		}
+		
+		return mv;
+	}
+	//跳转到交谈聊天页面----医生端
+		@RequestMapping(value = "talk2", method = RequestMethod.GET)
+		public ModelAndView talk2(String fromuser,String from,String fromname) {
+			//这里需要医生在登录的时候获取医生的id和姓名。	
+			ModelAndView mv = new ModelAndView("QandA2");
+			if(fromuser==null){
+				mv.addObject("fromtouser", 120);
+				System.out.println("病人1已登录");
+			}else{
+			mv.addObject("fromtouser", fromuser);
+			mv.addObject("from", from);
+			mv.addObject("fromname", fromname);
+			
+			}
+			
+			return mv;
+		}
+
+ 
+
+/*@RequestMapping("Revise")
+public String fun4(User user){
+dao.revise(user);
+return "index";
+}*/
+@RequestMapping("Question")
+public String fun5(Que_answer que){
+Timestamp q = new Timestamp(new Date().getTime());
+System.out.println(q);
+que.setQue_time(q);
+System.out.println(que.getQue_time());
+quedao.ask(que);
+return "index";
+}
+@RequestMapping("BrowseQue")
+public String fun6(ModelMap mp,HttpSession session){
+user=(User) session.getAttribute("user");
+List<Que_answer> allque=quedao.browseque(user.getUser_id());
+mp.addAttribute("allque",allque);
+return "showque";
+}
+@RequestMapping("AnsQue")
+public String fun7(Que_answer que,HttpSession session){
+Timestamp a = new Timestamp(new Date().getTime());
+user=(User) session.getAttribute("user");
+System.out.println(user.getUser_id());
+que.setQues_answer_id(user.getUser_id());
+que.setAns_time(a);
+quedao.ans(que);
+return "index";
+}
+/*@RequestMapping("BrowseDoc")
+public String fun8(ModelMap mp){
+List<User> alldoc=dao.doc();
+mp.addAttribute("alldoc",alldoc);
+return "showdoc";
+}*/
+/* 医师页面获取问题
+ * 参数两个
+ * Text
+ *docid
+ * */
+@RequestMapping(value = "askquestion", method = RequestMethod.POST)
+public void fun10(HttpServletRequest request){
+	System.out.println("shuchu");
+	request.getParameter("Text");
+	request.getParameter("docid");
+ 
+}
+/* 医师评价获取问题
+ * 参数一个
+ *eva
+ * */
+@RequestMapping(value = "doctoreva", method = RequestMethod.POST)
+public void fun11(HttpServletRequest request){
+	 
+	String eva = request.getParameter("eva");
+	System.out.println(eva);
+ 
+}
+
+
+
+}
+

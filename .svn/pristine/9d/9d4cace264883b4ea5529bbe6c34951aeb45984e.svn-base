@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dao.HospitalDao">
+	<select id="SearchAll" resultType="hos">
+		SELECT  
+   *, 
+       ROUND(  
+        6378.138 * 2 * ASIN(  
+            SQRT(  
+                POW(  
+                    SIN(  
+                        (  
+                            #{1} * PI() / 180 - hos_latitude * PI() / 180  
+                        ) / 2  
+                    ),  
+                    2  
+                ) + COS(#{1} * PI() / 180) * COS(hos_latitude * PI() / 180) * POW(  
+                    SIN(  
+                        (  
+                            #{0} * PI() / 180 - hos_longitude * PI() / 180  
+                        ) / 2  
+                    ),  
+                    2  
+                )  
+            )  
+        ) * 1000  
+    ) as distance,(5*`eva-good`+3*`eva-ordinary`-2*`eva-bad`) as eva   
+FROM  
+   hostial,hos_evaluation
+ WHERE     ROUND(  
+        6378.138 * 2 * ASIN(  
+            SQRT(  
+                POW(  
+                    SIN(  
+                        (  
+                            #{1} * PI() / 180 - hos_latitude * PI() / 180  
+                        ) / 2  
+                    ),  
+                    2  
+                ) + COS(#{1} * PI() / 180) * COS(hos_latitude * PI() / 180) * POW(  
+                    SIN(  
+                        (  
+                            #{0} * PI() / 180 - hos_longitude * PI() / 180  
+                        ) / 2  
+                    ),  
+                    2  
+                )  
+            )  
+        ) * 1000  
+    )>10000 and hos_id=`hos-id`
+ORDER BY  
+    distance ASC
+    LIMIT #{2},5
+	</select>
+
+<!-- 计算总数 -->
+	<select id="Pagenext" resultType="java.lang.Integer">
+		SELECT  
+   count(*) as ResultCount
+FROM  
+   hostial
+ WHERE     ROUND(  
+        6378.138 * 2 * ASIN(  
+            SQRT(  
+                POW(  
+                    SIN(  
+                        (  
+                            #{1} * PI() / 180 - hos_latitude * PI() / 180  
+                        ) / 2  
+                    ),  
+                    2  
+                ) + COS(#{1} * PI() / 180) * COS(hos_latitude * PI() / 180) * POW(  
+                    SIN(  
+                        (  
+                            #{0} * PI() / 180 - hos_longitude * PI() / 180  
+                        ) / 2  
+                    ),  
+                    2  
+                )  
+            )  
+        ) * 1000  
+    )>10000
+    </select>
+    <!-- 根据好评度进行排序 -->
+    	<select id="Searchbyeva" resultType="hos">
+		SELECT  
+ *,(5*`eva-good`+3*`eva-good`-2*`eva-bad`) as eva   
+FROM  
+   hostial,hos_evaluation
+ WHERE     ROUND(  
+        6378.138 * 2 * ASIN(  
+            SQRT(  
+                POW(  
+                    SIN(  
+                        (  
+                            #{1} * PI() / 180 - hos_latitude * PI() / 180  
+                        ) / 2  
+                    ),  
+                    2  
+                ) + COS(#{1} * PI() / 180) * COS(hos_latitude * PI() / 180) * POW(  
+                    SIN(  
+                        (  
+                            #{0} * PI() / 180 - hos_longitude * PI() / 180  
+                        ) / 2  
+                    ),  
+                    2  
+                )  
+            )  
+        ) * 1000  
+    )>10000  and hos_id=`hos-id`
+ORDER BY  
+    eva DESC
+    LIMIT #{2},5
+	</select>
+	<select id="hs" resultType="hos">
+	select * from hostial where hos_id=#{0};
+	</select>
+</mapper>

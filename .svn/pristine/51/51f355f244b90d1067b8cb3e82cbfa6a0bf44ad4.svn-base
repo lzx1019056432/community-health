@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dao.Hos_doctorDao">
+	<select id="doc" resultType="doc">
+		select * from hos_doctor ;
+	</select>
+	<update id="evaluate">
+	update hos_doctor 
+		<set>
+			<if test="i==1">
+				doc_evaluate1=(doc_evaluate1+1)
+			</if>
+			<if test="i==2">
+				doc_evaluate2=(doc_evaluate2+1)
+			</if>
+			<if test="i==3">
+				doc_evaluate3=(doc_evaluate3+1)
+			</if>
+			<if test="i==4">
+				doc_evaluate4=(doc_evaluate4+1)
+			</if>
+		</set>
+		where doc_id=#{id}
+	</update>
+</mapper>

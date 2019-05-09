@@ -1,0 +1,125 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/MyStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/AQ.css" />
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+		<title>医疗</title>
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default" role="navigation" id="navbar">
+			<div class="container-fluid">
+
+				<div>
+					<ul style="margin-left: 300px; font-size: 17px;" class="nav navbar-nav">
+						<li class="navbar-li">
+							<a href="searchall.do" style="color: white;">首页</a>
+						</li>
+						<li class="navbar-li">
+							<a href="QandA.jsp" style="color: white;">健康问答</a>
+						</li>
+						<li class="navbar-li">
+							<a href="Health.jsp" style="color: white; ">健康咨询</a>
+						</li>
+						<li class="navbar-li">
+							<a href="knowledge.jsp" style="color: white;">疾病知识</a>
+						</li>
+					</ul>
+				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="navbar-li-right">
+						<a href="register.jsp" style="color: white;"><span class="glyphicon glyphicon-user"></span> 注册</a>
+					</li>
+					<li class="navbar-li-right">
+						<a href="login.jsp" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> 登录</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<!--导航结束-->
+		<div class="logo">
+			<img style="width: 100%;" src="img/LOGO.png" />
+		</div>
+		<div class="container main-content">
+			<div class="row">
+				<div class="col-lg-12" style="margin-top: 50px;">
+					<!--最顶层目录-->
+					<div class="col-lg-12 AQmenu">
+						<div class="hm">
+							<div class="hm-title">
+								中国人民解放军火箭军总医院（原：中国人民解放军第二炮兵总医院）
+							</div>
+							<div id="myCarousel" class="carousel slide" style="width: 600px;margin: 20px auto;">
+								<!-- 轮播（Carousel）指标 -->
+								<ol class="carousel-indicators">
+									<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+									<li data-target="#myCarousel" data-slide-to="1"></li>
+									<li data-target="#myCarousel" data-slide-to="2"></li>
+								</ol>
+								<!-- 轮播（Carousel）项目 -->
+								<div class="carousel-inner">
+									<div class="item active">
+										<img src="img/lb1.jpg" alt="First slide">
+										<div class="carousel-caption">标题 1</div>
+									</div>
+									<div class="item">
+										<img src="img/lb2.jpg" alt="Second slide">
+										<div class="carousel-caption">标题 2</div>
+									</div>
+									<div class="item">
+										<img src="img/lb1.jpg" alt="Third slide">
+										<div class="carousel-caption">标题 3</div>
+									</div>
+								</div>
+								<!-- 轮播（Carousel）导航 -->
+								<a style="    line-height: 300px;" class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;
+								</a>
+								<a style="    line-height: 300px;" class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;
+								</a>
+							</div>
+							<div class="hm-itr">
+								<div id="hs-itr">
+									医院介绍
+								</div>
+								<div class="hm-itr-content">
+									<h4><b>简介</b></h4> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中国人民解放军火箭军总医院总医院、262医院全称中国人民解放军火箭军总医院总医院，于1956年3月16日正式收治病人，是一所集医疗、教学、科研、预防、保健、康复为一体的现代化综合性三级甲等医院
+								</div>
+								<div class="hm-itr-adr">
+									<h4><b>地址</b></h4>  北京市西城区新外大街16号
+								</div>
+								<div class="hm-itr-route">
+									<h4><b>行车路线 </b></h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 行车路线(外地患者):火车站路线:从北京站出发,乘地铁2号线在积水潭下车,A口出向北500米即到;从北京西站出发,乘47路在北京师范大学下车,步行至医院;
+								</div>
+								<div id="hs-tel">
+									<b>电话 </b>: 010-66343114(总机)
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<!--内容容器-->
+
+				</div>
+			</div>
+		</div>
+
+		<!--容器结束		-->
+		<div id="footer" class="footer">
+		</div>
+	</body>
+
+</html>

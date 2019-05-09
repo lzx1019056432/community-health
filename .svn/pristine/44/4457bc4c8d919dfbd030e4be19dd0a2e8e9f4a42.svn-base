@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>用户修改</h2>
+<form action="Revise.do?user_id=${user.user_id }" method="post">
+<table>
+	<tr><td>用户姓名</td><td><input type="text" name="user_name" value=${user.user_name }></td></tr>
+	<tr><td>用户权限</td><td><input type="text" name="user_groupid" value=${user.user_groupid }></td></tr>
+	<tr><td>用户密码</td><td><input type="password" name="user_password" value=${user.user_password }></td></tr>
+	<tr><td>用户头像</td><td><input type="text" name="user_image" value=${user.user_image }></td></tr>
+	<tr><td colspan="2"><input type="submit" value="确认修改"/></td></tr>
+</table>
+</form>
+</body>
+</html>

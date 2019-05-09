@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<%String text = (String)request.getParameter("tittle");
+String tittle_id = (String)request.getParameter("tittle_id");
+String id = (String)request.getParameter("id");
+%>
+<body>
+<form action="AnsQue.do?ques_id=<%=id%>" method="post">
+<table>
+<tr>
+	<td>用户id</td>
+	<td><input type="text" name="ques_tittle_id" value=<%=tittle_id %>></td>
+</tr>
+<tr>
+	<td>用户问题</td>
+	<td><input type="text" name="ques_tittle" value=<%=text %>></td>
+</tr>
+<tr>
+	<td>答案</td>
+	<td><textarea name="ques_answer" style="width:600px;height:400px;"></textarea></td>
+</tr>
+</table>
+<input type="submit" value="提交答案">
+</form>
+</body>
+</html>

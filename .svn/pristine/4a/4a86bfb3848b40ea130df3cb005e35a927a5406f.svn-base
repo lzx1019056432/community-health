@@ -1,0 +1,9 @@
+package com.test.dao;
+
+import java.util.List;
+
+import com.test.entity.Consult;
+
+public interface ConsultDao {
+	public List<Consult> browseCon(int con_lable);
+}
